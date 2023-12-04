@@ -1,0 +1,50 @@
+{
+  "ProductList": [
+    {
+      "productName": "Apple",
+      "Category": "Fruits",
+      "Freshness": "Brand New",
+      "price": 25,
+      "comment": "fresh product ",
+      "Date": "2023-12-04T18:30:00.000Z",
+      "id": 1
+    },
+    {
+      "productName": "Apple",
+      "Category": "Fruits",
+      "Freshness": "Brand New",
+      "price": 25,
+      "comment": "fresh product ",
+      "Date": "2023-12-04T18:30:00.000Z",
+      "id": 2
+    },
+    {
+      "productName": "chiku",
+      "Category": "Fruits",
+      "Freshness": "Brand New",
+      "price": 23,
+      "comment": "well product",
+      "Date": "2023-12-04T18:30:00.000Z",
+      "id": 3
+    },
+    {
+      "productName": "I-Phone",
+      "Category": "Electronic",
+      "Freshness": "Brand New",
+      "price": 30,
+      "comment": "well product for electronic",
+      "Date": "2023-12-04T18:30:00.000Z",
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

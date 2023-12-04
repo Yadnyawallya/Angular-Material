@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
+import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ApiService } from '../services/api.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { publishFacade } from '@angular/compiler';
 
 
 @Component({
@@ -9,10 +13,50 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 })
 export class DialogComponent implements OnInit {
 
-  freshnessList = ["Brand New" , "Second Hand", "Refurbished"]
-  constructor() { }
+  freshnessList = ["Brand New" , "Second Hand", "Refurbished"];
+  ProductForm !:FormGroup;
+  constructor( private formBuilder:FormBuilder, 
+    @Inject(MAT_DIALOG_DATA) public editData:any, 
+    private api:ApiService , 
+    private dialogRef : MatDialogRef<DialogComponent>) { }
 
   ngOnInit(): void {
+    this.ProductForm = this.formBuilder.group({
+      productName : ['',Validators.required],
+      Category : ['',Validators.required],
+      Freshness : ['',Validators.required],
+      price : ['',Validators.required],
+      comment : ['',Validators.required],
+      Date : ['',Validators.required]
+    })
+
+    //console.log(this.editData);
+    if(this.editData){
+      this.ProductForm.controls['productName'].setValue(this.editData.productName);
+      this.ProductForm.controls['Category'].setValue(this.editData.Category);
+      this.ProductForm.controls['Freshness'].setValue(this.editData.Freshness);
+      this.ProductForm.controls['price'].setValue(this.editData.price);
+      this.ProductForm.controls['comment'].setValue(this.editData.comment);
+      this.ProductForm.controls['Date'].setValue(this.editData.Date);
+    }
+  }
+
+  addProduct(){
+    console.log("product value",this.ProductForm.value);
+    if(this.ProductForm.valid){
+      this.api.postProduct(this.ProductForm.value)
+      .subscribe({
+        next:(res)=>{
+          alert("product added successfully");
+          this.ProductForm.reset();
+          this.dialogRef.close('save');
+        },
+        error:()=>{
+          alert("error while adding the product");
+        }
+      })
+    }
+    //console.log("product value",this.ProductForm.value);
   }
 
 }
