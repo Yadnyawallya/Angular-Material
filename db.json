@@ -4,19 +4,10 @@
       "productName": "Apple",
       "Category": "Fruits",
       "Freshness": "Brand New",
-      "price": 25,
+      "price": 250,
       "comment": "fresh product ",
       "Date": "2023-12-04T18:30:00.000Z",
       "id": 1
-    },
-    {
-      "productName": "Apple",
-      "Category": "Fruits",
-      "Freshness": "Brand New",
-      "price": 25,
-      "comment": "fresh product ",
-      "Date": "2023-12-04T18:30:00.000Z",
-      "id": 2
     },
     {
       "productName": "chiku",
@@ -35,6 +26,15 @@
       "comment": "well product for electronic",
       "Date": "2023-12-04T18:30:00.000Z",
       "id": 4
+    },
+    {
+      "productName": "mango",
+      "Category": "Fruits",
+      "Freshness": "Second Hand",
+      "price": 250,
+      "comment": "product is not fresh",
+      "Date": "2023-11-30T18:30:00.000Z",
+      "id": 5
     }
   ],
   "comments": [

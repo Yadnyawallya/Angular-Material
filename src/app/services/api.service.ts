@@ -9,10 +9,18 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   postProduct(data:any){ 
-    return this.http.post<any>("http://localhost:3000/ProductList",data);
+    return this.http.post<any>("http://localhost:3000/ProductList/",data);
   }
 
   getproduct(){
-    return this.http.get<any>("http://localhost:3000/ProductList");
+    return this.http.get<any>("http://localhost:3000/ProductList/");
+  }
+
+  putProduct(data : any, id : number){
+    //console.log("update data on services",data,id);
+    return this.http.put<any>("http://localhost:3000/ProductList/"+id, data);
+  }
+  deleteProduct( id : number){
+    return this.http.delete<any>("http://localhost:3000/ProductList/"+id);
   }
 }
